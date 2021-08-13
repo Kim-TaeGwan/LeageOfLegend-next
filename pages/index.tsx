@@ -10,7 +10,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainComponent />
-      <main>솔빈이</main>
     </div>
   );
 }
