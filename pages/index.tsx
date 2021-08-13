@@ -1,7 +1,10 @@
 import Head from "next/head";
 import MainComponent from "../components/MainComponent";
+import axios from "axios";
 
 export default function Home() {
+  axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+  axios.defaults.withCredentials = true;
   return (
     <div>
       <Head>
@@ -10,7 +13,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainComponent />
-      <main>솔빈이</main>
     </div>
   );
 }
