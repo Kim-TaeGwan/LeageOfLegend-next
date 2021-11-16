@@ -1,6 +1,10 @@
 import Image from "next/image";
+
+import Search from "shared/Search";
+
 import LogoImg from "assets/images/logo.png";
-import { Logo } from "./styles";
+import banner from "assets/images/arcane.jpeg";
+import { Logo, MainBanner } from "./styles";
 
 const MainComponent = () => {
   return (
@@ -8,8 +12,16 @@ const MainComponent = () => {
       <Logo>
         <Image src={LogoImg} alt="logo" width={420} height={200} />
       </Logo>
-      <div>MainPage</div>
-      {/*<input type="text" value={setSummonerName} />*/}
+      <Search />
+      <MainBanner>
+        <Image
+          src={banner}
+          alt="logo"
+          width={970}
+          height={250}
+          objectFit="cover"
+        />
+      </MainBanner>
     </div>
   );
 };
