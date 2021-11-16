@@ -1,12 +1,14 @@
 import React, { FC } from "react";
 import Header from "./Header";
-import { Wrap } from "./styles";
+import { Container, Wrap } from "./styles";
+import { useRouter } from "next/router";
 
 const Layout: FC = ({ children }) => {
+  const router = useRouter();
   return (
-    <Wrap>
+    <Wrap className={`${router.pathname == "/" ? "main" : ""}`}>
       <Header />
-      {children}
+      <Container>{children}</Container>
     </Wrap>
   );
 };
