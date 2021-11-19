@@ -20,6 +20,7 @@ const MainComponent = () => {
           width={970}
           height={250}
           objectFit="cover"
+          layout="responsive"
         />
       </MainBanner>
     </div>

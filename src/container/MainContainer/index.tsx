@@ -4,17 +4,18 @@ import axios from "axios";
 
 const MainContainer = () => {
   const [data, setData] = useState("");
-  const [summonerName, setSummonerName] = useState("");
+  const [summonerName, setSummonerName] = useState("hide on bush");
   useEffect(() => {
     axios
       .get(
-        `/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${process.env.REACT_APP_API_KEY}`
+        `/summoner/v4/summoners/by-name/${summonerName}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
       )
       .then((response) => {
         console.log(response);
         setData(response.data);
       })
       .catch((error) => console.log("에러 : ", error));
+    console.log(process.env.NEXT_PUBLIC_API_KEY);
   }, [summonerName]);
   return (
     <>
