@@ -4,9 +4,8 @@ import MainPage from "./MainPage";
 
 export default function Home() {
   axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
-  axios.defaults.withCredentials = true;
-
-  console.log(process.env.NEXT_PUBLIC_API_URL);
+  // axios.defaults.withCredentials = true;
+  // axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
   return (
     <div>
       <Head>
