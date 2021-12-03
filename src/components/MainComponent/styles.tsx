@@ -7,5 +7,4 @@ export const Logo = styled.div`
 
 export const MainBanner = styled.div`
   text-align: center;
-  background-image: url(" + \`${require("assets/images/arcane.jpeg")}\` + ");
 `;

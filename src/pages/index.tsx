@@ -3,8 +3,9 @@ import axios from "axios";
 import MainPage from "./MainPage";
 
 export default function Home() {
-  axios.defaults.baseURL = process.env.REACT_APP_API_URL;
-  axios.defaults.withCredentials = true;
+  axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
+  // axios.defaults.withCredentials = true;
+  // axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
   return (
     <div>
       <Head>
