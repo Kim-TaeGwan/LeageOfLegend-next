@@ -4,26 +4,30 @@ import ggIcon from "assets/images/ggButton.png";
 import { SearchContainer, SearchInput, SummonerSearch } from "./styles";
 import useInput from "../../hooks/useInput";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 const Search = () => {
-  const [data, setData] = useState(null);
   const [summonerName, onChangeSummonerName, setSummonerName] = useInput("");
+
+  const router = useRouter();
 
   const handleSummoner = useCallback(
     (e) => {
       e.preventDefault();
-      axios
-        .get(
-          `/summoner/v4/summoners/by-name/${summonerName}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
-        )
-        .then((response) => {
-          console.log("성공 : ", response.data);
-          setSummonerName("");
-          // setData(response.data);
-        })
-        .catch((error) => console.log("에러 : ", error));
+      summonerName
+        ? axios
+            .get(
+              `/summoner/v4/summoners/by-name/${summonerName}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+            )
+            .then((response) => {
+              console.log("성공 : ", response.data);
+              router.push(`/summoner/userName=${summonerName}`);
+              setSummonerName("");
+            })
+            .catch((error) => console.log("에러 : ", error))
+        : router.push(`/summoner/userName`);
     },
-    [summonerName, setSummonerName]
+    [summonerName, setSummonerName, router]
   );
 
   return (
