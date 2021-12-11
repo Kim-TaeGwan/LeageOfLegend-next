@@ -30,7 +30,17 @@ const Search = () => {
               });
               setSummonerName("");
             })
-            .catch((error) => console.log("에러 : ", error))
+            .catch((error) => {
+              // if (error.response.status === 404) {
+              router.push({
+                pathname: "/summoner/userName/[nickname]",
+                query: {
+                  nickname: summonerName,
+                },
+              });
+              // }
+              console.log("에러 : ", error);
+            })
         : router.push(`/summoner/userName`);
     },
     [summonerName, setSummonerName, router]
