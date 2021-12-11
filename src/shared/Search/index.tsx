@@ -20,11 +20,27 @@ const Search = () => {
               `/summoner/v4/summoners/by-name/${summonerName}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
             )
             .then((response) => {
-              console.log("성공 : ", response.data);
-              router.push(`/summoner/userName=${summonerName}`);
+              console.log("소환사 검색 성공 : ", response.data);
+              router.push({
+                pathname: "/summoner/userName/[nickname]",
+                query: {
+                  nickname: summonerName,
+                  encryptedSummonerId: response.data.id,
+                },
+              });
               setSummonerName("");
             })
-            .catch((error) => console.log("에러 : ", error))
+            .catch((error) => {
+              // if (error.response.status === 404) {
+              router.push({
+                pathname: "/summoner/userName/[nickname]",
+                query: {
+                  nickname: summonerName,
+                },
+              });
+              // }
+              console.log("에러 : ", error);
+            })
         : router.push(`/summoner/userName`);
     },
     [summonerName, setSummonerName, router]
