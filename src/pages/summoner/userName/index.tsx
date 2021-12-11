@@ -1,7 +1,13 @@
 import React from "react";
+import Layout from "Layout";
+import SummonerContainer from "container/SummonerContainer";
 
 const Username = () => {
-  return <div>Username</div>;
+  return (
+    <Layout>
+      <SummonerContainer />
+    </Layout>
+  );
 };
 
 export default Username;

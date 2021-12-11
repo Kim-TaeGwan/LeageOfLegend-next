@@ -1,7 +1,12 @@
 import React from "react";
+import SummonerSearchComponent from "components/SummonerSearchComponent";
 
 const SummonerContainer = () => {
-  return <div>SummonerContainer</div>;
+  return (
+    <>
+      <SummonerSearchComponent />
+    </>
+  );
 };
 
 export default SummonerContainer;
