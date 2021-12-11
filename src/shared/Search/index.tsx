@@ -4,10 +4,12 @@ import ggIcon from "assets/images/ggButton.png";
 import { SearchContainer, SearchInput, SummonerSearch } from "./styles";
 import useInput from "../../hooks/useInput";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 const Search = () => {
-  const [data, setData] = useState(null);
   const [summonerName, onChangeSummonerName, setSummonerName] = useInput("");
+
+  const router = useRouter();
 
   const handleSummoner = useCallback(
     (e) => {
@@ -18,6 +20,7 @@ const Search = () => {
         )
         .then((response) => {
           console.log("성공 : ", response.data);
+          router.push(`/summoner/userName=${summonerName}`);
           setSummonerName("");
           // setData(response.data);
         })
