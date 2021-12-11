@@ -10,6 +10,10 @@ export const Header = styled.div`
     font-size: 26px;
     margin-bottom: 10px;
   }
+  & h3 {
+    color: #555e5e;
+    font-size: 18px;
+  }
   &::after {
     display: block;
     margin: 30px auto;
