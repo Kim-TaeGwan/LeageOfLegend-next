@@ -15,7 +15,7 @@ const SummonerSearchComponent: VFC<Props> = ({ errorNickname }) => {
   return (
     <SummonerSearch>
       {errorNickname ? (
-        <Header>
+        <Header className="left">
           <h2>
             OP.GG에 등록되지 않은 소환사입니다. 오타를 확인 후 다시
             검색해주세요.

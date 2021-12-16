@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "Layout";
 import { useRouter } from "next/router";
 import SummonerSearchComponent from "components/Summoner/SearchComponent";
+import History from "components/History";
 
 const Nickname = () => {
   const router = useRouter();
@@ -9,10 +10,10 @@ const Nickname = () => {
   return (
     <Layout>
       {encryptedSummonerId ? (
-        <>
-          <div>Nickname : {nickname}</div>
-          <div>encryptedSummonerId : {encryptedSummonerId}</div>
-        </>
+        <History
+          nickname={nickname}
+          encryptedSummonerId={encryptedSummonerId}
+        />
       ) : (
         <SummonerSearchComponent errorNickname />
       )}

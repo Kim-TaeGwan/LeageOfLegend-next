@@ -22,6 +22,9 @@ export const Header = styled.div`
     width: 200px;
     height: 0;
   }
+  &.left {
+    text-align: left;
+  }
 `;
 
 export const Logo = styled.div`
