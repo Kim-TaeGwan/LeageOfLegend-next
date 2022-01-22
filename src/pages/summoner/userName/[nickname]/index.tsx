@@ -7,7 +7,7 @@ const Nickname = () => {
   const router = useRouter();
   const { nickname, encryptedSummonerId } = router.query;
   return (
-    <Layout>
+    <>
       {encryptedSummonerId ? (
         <>
           <div>Nickname : {nickname}</div>
@@ -16,7 +16,7 @@ const Nickname = () => {
       ) : (
         <SummonerSearchComponent errorNickname />
       )}
-    </Layout>
+    </>
   );
 };
 

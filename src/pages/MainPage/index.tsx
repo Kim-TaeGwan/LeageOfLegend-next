@@ -3,11 +3,7 @@ import Layout from "Layout";
 import MainContainer from "container/MainContainer";
 
 const MainPage = () => {
-  return (
-    <Layout>
-      <MainContainer />
-    </Layout>
-  );
+  return <MainContainer />;
 };
 
 export default MainPage;
